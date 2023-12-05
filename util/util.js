@@ -2,10 +2,10 @@ import { config } from 'dotenv';
 
 config();
 
-export async function getData(url) {
+export async function getData(day) {
   try {
     const response = await fetch(
-      url, 
+      `https://adventofcode.com/2023/day/${day}/input`,
       { headers: { 'Cookie': process.env.SESSION_COOKIE } }
     );
 

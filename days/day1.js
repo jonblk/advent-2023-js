@@ -1,5 +1,7 @@
 import { getData } from "./../util/util.js"
 
+const DAY = 1;
+
 let v = {
   "1": 1,
   "2": 2,
@@ -21,13 +23,15 @@ let v = {
   "nine": 9
 };
 
-getData('https://adventofcode.com/2023/day/1/input').then(data => {
-  const output1 = data.split("\n").reduce((sum, seq) => {
+getData(DAY).then(data => {Y
+  const lines = data.split("\n");
+
+  const output1 = lines.reduce((sum, seq) => {
     let numbers = seq.match(/\d/g)
     return sum + (numbers ? +`${numbers[0]}${numbers.at(-1)}` : 0)
   }, 0)
 
-  const output2 = data.split("\n").reduce((sum, seq) => {
+  const output2 = lines.reduce((sum, seq) => {
     const matches = [] 
     for (let   i = 0; i < seq.length; i++) {
       for (let j = i; j < seq.length; j++) {
